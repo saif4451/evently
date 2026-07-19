@@ -1,0 +1,23 @@
+class AppAssets {
+  static const String eventlyLogo = 'assets/Evently.png';
+  static const String forgetPassword = 'assets/forgetpassowrd.png';
+  static const String googleLogo = 'assets/google.png';
+  static const String routeLogo = 'assets/Logo.png';
+  static const String onboarding1 = 'assets/onboarding1.png';
+  static const String onboarding2 = 'assets/onboarding2.png';
+  static const String onboarding3 = 'assets/onboarding3.png';
+  static const String onboarding4 = 'assets/onboarding4.png';
+  static const String iconAll = 'assets/ic_all.svg';
+  static const String iconBirthday = 'assets/ic_birthday.svg';
+  static const String iconEmail = 'assets/ic_email.svg';
+  static const String iconHeart = 'assets/ic_heart.svg';
+  static const String iconHeartNavigationBar = 'assets/ic_heartN.svg';
+  static const String iconHidden = 'assets/ic_hidden.svg';
+  static const String iconHome = 'assets/ic_home.svg';
+  static const String iconLogout = 'assets/ic_logout.svg';
+  static const String iconName = 'assets/ic_name.svg';
+  static const String iconPassword = 'assets/ic_password.svg';
+  static const String iconProfile = 'assets/ic_profile.svg';
+  static const String iconSearch = 'assets/ic_search.svg';
+  static const String iconSport = 'assets/ic_sport.svg';
+}
