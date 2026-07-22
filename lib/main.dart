@@ -4,6 +4,7 @@ import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/providers/language_provider.dart';
 import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_routes.dart';
+import 'package:evently/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -47,8 +48,8 @@ class _MyAppState extends State<MyApp> {
             AppRoutes.homeRouteName: (context) => HomeScreen(),
             AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
           },
-          theme: ThemeData.light(),
-          darkTheme: ThemeData.dark(),
+          theme: AppTheme.lightMode,
+          darkTheme: AppTheme.darkMode,
           themeMode: themeProvider.appTheme,
           locale: Locale(languageProvider.appLanguage),
         );

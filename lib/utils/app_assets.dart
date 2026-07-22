@@ -22,4 +22,8 @@ class AppAssets {
   static const String iconSport = 'assets/ic_sport.svg';
   static const String eventlyOnBordLight = 'assets/eventlyon.png';
   static const String eventlyOnBordDark = 'assets/eveotlyon_dark.png';
+  static const String onboardingdark1 = 'assets/onboarding1dark.png';
+  static const String onboardingdark2 = 'assets/onboarding2dark.png';
+  static const String onboardingdark3 = 'assets/onboarding3dark.png';
+  static const String onboardingdark4 = 'assets/onboarding4dark.png';
 }

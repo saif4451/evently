@@ -31,12 +31,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           : AppColors.backgroundDarkColor,
 
       pages: [
-        _buildPage(
+        buildPage(
           themeProvider: themeProvider,
           context: context,
           languageProvider: languageProvider,
-          topImagePath: AppAssets.eventlyOnBordLight,
-          centerImagePath: AppAssets.onboarding1,
+          topImagePath: themeProvider.appTheme == ThemeMode.light
+              ? AppAssets.eventlyOnBordLight
+              : AppAssets.eventlyOnBordDark,
+          centerImagePath: themeProvider.appTheme == ThemeMode.light
+              ? AppAssets.onboarding1
+              : AppAssets.onboardingdark1,
           title: AppLocalizations.of(context)!.titel1,
           description: AppLocalizations.of(context)!.description1,
         ),
@@ -55,7 +59,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           height: 50.h,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primaryColor,
+              backgroundColor: themeProvider.appTheme == ThemeMode.dark
+                  ? AppColors.primarydarkColor
+                  : AppColors.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.r),
               ),
@@ -71,7 +77,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  PageViewModel _buildPage({
+  PageViewModel buildPage({
     required BuildContext context,
     required LanguageProvider languageProvider,
     required String topImagePath,
@@ -80,6 +86,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required String description,
     required ThemeProvider themeProvider,
   }) {
+    final bool isDark = themeProvider.appTheme == ThemeMode.dark;
+    final Color currentPrimary = isDark
+        ? AppColors.primarydarkColor
+        : AppColors.primaryColor;
+
     return PageViewModel(
       title: '',
       bodyWidget: SingleChildScrollView(
@@ -97,14 +108,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
               SizedBox(height: 16.h),
 
-              Text(title, style: AppTextStyles.black20w600),
+              Text(
+                title,
+                style: AppTextStyles.black20w600.copyWith(
+                  color: isDark ? AppColors.whiteColor : AppColors.blackColor,
+                ),
+              ),
 
               SizedBox(height: 6.h),
 
               Text(
                 description,
                 textAlign: TextAlign.start,
-                style: AppTextStyles.gray16w400,
+                style: AppTextStyles.gray16w400.copyWith(
+                  color: isDark
+                      ? AppColors.darkThemesecText
+                      : AppColors.secTextColor,
+                ),
               ),
 
               SizedBox(height: 16.h),
@@ -113,7 +133,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.language,
-                    style: AppTextStyles.primary18w500,
+                    style: AppTextStyles.primary18w500.copyWith(
+                      color: isDark
+                          ? AppColors.whiteColor
+                          : AppColors.primaryColor,
+                    ),
                   ),
                   const Spacer(),
                   InkWell(
@@ -127,15 +151,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: languageProvider.appLanguage == 'en'
-                            ? AppColors.primaryColor
-                            : AppColors.whiteColor,
+                            ? currentPrimary
+                            : (isDark
+                                  ? Colors.transparent
+                                  : AppColors.whiteColor),
                         borderRadius: BorderRadius.circular(8.r),
+                        border: (languageProvider.appLanguage != 'en' && isDark)
+                            ? Border.all(color: currentPrimary)
+                            : null,
                       ),
                       child: Text(
                         AppLocalizations.of(context)!.english,
                         style: languageProvider.appLanguage == 'en'
                             ? AppTextStyles.white14w600
-                            : AppTextStyles.primary14w600,
+                            : AppTextStyles.primary14w600.copyWith(
+                                color: isDark
+                                    ? AppColors.whiteColor
+                                    : AppColors.primaryColor,
+                              ),
                       ),
                     ),
                   ),
@@ -151,15 +184,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: languageProvider.appLanguage == 'ar'
-                            ? AppColors.primaryColor
-                            : AppColors.whiteColor,
+                            ? currentPrimary
+                            : (isDark
+                                  ? Colors.transparent
+                                  : AppColors.whiteColor),
                         borderRadius: BorderRadius.circular(8.r),
+                        border: (languageProvider.appLanguage != 'ar' && isDark)
+                            ? Border.all(color: currentPrimary)
+                            : null,
                       ),
                       child: Text(
                         AppLocalizations.of(context)!.arabic,
                         style: languageProvider.appLanguage == 'ar'
                             ? AppTextStyles.white14w600
-                            : AppTextStyles.primary14w600,
+                            : AppTextStyles.primary14w600.copyWith(
+                                color: isDark
+                                    ? AppColors.whiteColor
+                                    : AppColors.primaryColor,
+                              ),
                       ),
                     ),
                   ),
@@ -172,7 +214,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.theme,
-                    style: AppTextStyles.primary18w500,
+                    style: AppTextStyles.primary18w500.copyWith(
+                      color: isDark
+                          ? AppColors.whiteColor
+                          : AppColors.primaryColor,
+                    ),
                   ),
                   const Spacer(),
 
@@ -189,16 +235,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: themeProvider.appTheme == ThemeMode.light
-                            ? AppColors.primaryColor
-                            : AppColors.whiteColor,
+                            ? currentPrimary
+                            : (isDark
+                                  ? Colors.transparent
+                                  : AppColors.whiteColor),
                         borderRadius: BorderRadius.circular(8.r),
+                        border:
+                            (themeProvider.appTheme != ThemeMode.light &&
+                                isDark)
+                            ? Border.all(color: currentPrimary)
+                            : null,
                       ),
                       child: SvgPicture.asset(
                         'assets/sun.svg',
                         colorFilter: ColorFilter.mode(
                           themeProvider.appTheme == ThemeMode.light
                               ? Colors.white
-                              : AppColors.primaryColor,
+                              : (isDark
+                                    ? AppColors.whiteColor
+                                    : AppColors.primaryColor),
                           BlendMode.srcIn,
                         ),
                       ),
@@ -220,9 +275,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: themeProvider.appTheme == ThemeMode.dark
-                            ? AppColors.primaryColor
+                            ? currentPrimary
                             : AppColors.whiteColor,
                         borderRadius: BorderRadius.circular(8.r),
+                        border:
+                            (themeProvider.appTheme != ThemeMode.dark && isDark)
+                            ? Border.all(color: currentPrimary)
+                            : null,
                       ),
                       child: SvgPicture.asset(
                         'assets/moon.svg',
@@ -246,9 +305,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
       decoration: PageDecoration(
         fullScreen: false,
-        pageColor: themeProvider.appTheme == ThemeMode.light
-            ? AppColors.backgroundColor
-            : AppColors.backgroundDarkColor,
+        pageColor: isDark
+            ? AppColors.backgroundDarkColor
+            : AppColors.backgroundColor,
       ),
     );
   }
