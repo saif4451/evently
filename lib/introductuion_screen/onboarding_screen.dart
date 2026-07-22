@@ -1,6 +1,7 @@
 import 'package:evently/home/home_screen.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/providers/language_provider.dart';
+import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_text_styles.dart';
@@ -18,18 +19,20 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  String mode = 'dark';
-
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<LanguageProvider>(context);
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return IntroductionScreen(
       bodyPadding: EdgeInsets.zero,
       controlsPadding: EdgeInsets.zero,
-      globalBackgroundColor: AppColors.backgroundColor,
+      globalBackgroundColor: themeProvider.appTheme == ThemeMode.light
+          ? AppColors.backgroundColor
+          : AppColors.backgroundDarkColor,
 
       pages: [
         _buildPage(
+          themeProvider: themeProvider,
           context: context,
           languageProvider: languageProvider,
           topImagePath: AppAssets.eventlyOnBordLight,
@@ -75,6 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required centerImagePath,
     required String title,
     required String description,
+    required ThemeProvider themeProvider,
   }) {
     return PageViewModel(
       title: '',
@@ -175,7 +179,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   InkWell(
                     onTap: () {
                       setState(() {
-                        mode = 'light';
+                        themeProvider.changeTheme(ThemeMode.light);
                       });
                     },
                     child: Container(
@@ -184,7 +188,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         vertical: 6.h,
                       ),
                       decoration: BoxDecoration(
-                        color: mode == 'light'
+                        color: themeProvider.appTheme == ThemeMode.light
                             ? AppColors.primaryColor
                             : AppColors.whiteColor,
                         borderRadius: BorderRadius.circular(8.r),
@@ -192,7 +196,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: SvgPicture.asset(
                         'assets/sun.svg',
                         colorFilter: ColorFilter.mode(
-                          mode == 'light'
+                          themeProvider.appTheme == ThemeMode.light
                               ? Colors.white
                               : AppColors.primaryColor,
                           BlendMode.srcIn,
@@ -206,7 +210,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   InkWell(
                     onTap: () {
                       setState(() {
-                        mode = 'dark';
+                        themeProvider.changeTheme(ThemeMode.dark);
                       });
                     },
                     child: Container(
@@ -215,7 +219,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         vertical: 6.h,
                       ),
                       decoration: BoxDecoration(
-                        color: mode == 'dark'
+                        color: themeProvider.appTheme == ThemeMode.dark
                             ? AppColors.primaryColor
                             : AppColors.whiteColor,
                         borderRadius: BorderRadius.circular(8.r),
@@ -223,7 +227,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: SvgPicture.asset(
                         'assets/moon.svg',
                         colorFilter: ColorFilter.mode(
-                          mode == 'dark'
+                          themeProvider.appTheme == ThemeMode.dark
                               ? Colors.white
                               : AppColors.primaryColor,
                           BlendMode.srcIn,
@@ -240,9 +244,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ),
 
-      decoration: const PageDecoration(
+      decoration: PageDecoration(
         fullScreen: false,
-        pageColor: AppColors.backgroundColor,
+        pageColor: themeProvider.appTheme == ThemeMode.light
+            ? AppColors.backgroundColor
+            : AppColors.backgroundDarkColor,
       ),
     );
   }
