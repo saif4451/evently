@@ -25,4 +25,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get light => 'مضيئ';
+
+  @override
+  String get titel1 => 'خصّص تجربتك';
+
+  @override
+  String get description1 =>
+      'اختر لغتك وسمتك المفضلة للبدء بتجربة مريحة ومخصصة تناسب ذوقك';
+
+  @override
+  String get bottomOnBoard1 => 'لنبدأ';
 }

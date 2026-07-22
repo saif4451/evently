@@ -133,6 +133,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Light'**
   String get light;
+
+  /// No description provided for @titel1.
+  ///
+  /// In en, this message translates to:
+  /// **'Personalize Your Experience'**
+  String get titel1;
+
+  /// No description provided for @description1.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.'**
+  String get description1;
+
+  /// No description provided for @bottomOnBoard1.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s start'**
+  String get bottomOnBoard1;
 }
 
 class _AppLocalizationsDelegate

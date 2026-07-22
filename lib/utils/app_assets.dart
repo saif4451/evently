@@ -20,4 +20,6 @@ class AppAssets {
   static const String iconProfile = 'assets/ic_profile.svg';
   static const String iconSearch = 'assets/ic_search.svg';
   static const String iconSport = 'assets/ic_sport.svg';
+  static const String eventlyOnBordLight = 'assets/eventlyon.png';
+  static const String eventlyOnBordDark = 'assets/eveotlyon_dark.png';
 }

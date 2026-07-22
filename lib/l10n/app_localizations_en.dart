@@ -25,4 +25,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get light => 'Light';
+
+  @override
+  String get titel1 => 'Personalize Your Experience';
+
+  @override
+  String get description1 =>
+      'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.';
+
+  @override
+  String get bottomOnBoard1 => 'Let\'s start';
 }
