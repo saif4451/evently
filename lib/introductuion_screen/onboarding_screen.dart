@@ -1,4 +1,5 @@
 import 'package:evently/home/home_screen.dart';
+import 'package:evently/introductuion_screen/onboarding_other_page_item.dart.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/providers/language_provider.dart';
 import 'package:evently/providers/theme_provider.dart';
@@ -8,8 +9,8 @@ import 'package:evently/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'main_page.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -19,30 +20,106 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  final GlobalKey<IntroductionScreenState> introKey =
+      GlobalKey<IntroductionScreenState>();
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<LanguageProvider>(context);
     var themeProvider = Provider.of<ThemeProvider>(context);
+    final bool isDark = themeProvider.appTheme == ThemeMode.dark;
+
     return IntroductionScreen(
+      key: introKey,
       bodyPadding: EdgeInsets.zero,
       controlsPadding: EdgeInsets.zero,
-      globalBackgroundColor: themeProvider.appTheme == ThemeMode.light
-          ? AppColors.backgroundColor
-          : AppColors.backgroundDarkColor,
+      globalBackgroundColor: isDark
+          ? AppColors.backgroundDarkColor
+          : AppColors.backgroundColor,
+      onChange: (index) {
+        setState(() {
+          currentIndex = index;
+        });
+      },
 
       pages: [
-        buildPage(
-          themeProvider: themeProvider,
-          context: context,
-          languageProvider: languageProvider,
-          topImagePath: themeProvider.appTheme == ThemeMode.light
-              ? AppAssets.eventlyOnBordLight
-              : AppAssets.eventlyOnBordDark,
-          centerImagePath: themeProvider.appTheme == ThemeMode.light
-              ? AppAssets.onboarding1
-              : AppAssets.onboardingdark1,
-          title: AppLocalizations.of(context)!.titel1,
-          description: AppLocalizations.of(context)!.description1,
+        PageViewModel(
+          title: '',
+          bodyWidget: OnboardingPageItem.build(
+            context: context,
+            languageProvider: languageProvider,
+            themeProvider: themeProvider,
+          ),
+          decoration: PageDecoration(
+            fullScreen: false,
+            pageColor: isDark
+                ? AppColors.backgroundDarkColor
+                : AppColors.backgroundColor,
+          ),
+        ),
+        PageViewModel(
+          title: '',
+          bodyWidget: OnboardingOtherPageItem.build(
+            context: context,
+            isDark: isDark,
+            topImagePath: isDark
+                ? AppAssets.eventlyOnBordDark
+                : AppAssets.eventlyOnBordLight,
+            centerImagePath: isDark
+                ? AppAssets.onboardingdark2
+                : AppAssets.onboarding2,
+            title: AppLocalizations.of(context)!.titel2,
+            description: AppLocalizations.of(context)!.description2,
+          ),
+          decoration: PageDecoration(
+            fullScreen: false,
+            pageColor: isDark
+                ? AppColors.backgroundDarkColor
+                : AppColors.backgroundColor,
+          ),
+        ),
+        PageViewModel(
+          title: '',
+          bodyWidget: OnboardingOtherPageItem.build(
+            context: context,
+            isDark: isDark,
+            topImagePath: isDark
+                ? AppAssets.eventlyOnBordDark
+                : AppAssets.eventlyOnBordLight,
+            centerImagePath: isDark
+                ? AppAssets.onboardingdark3
+                : AppAssets.onboarding3,
+            title: AppLocalizations.of(context)!.titel3,
+            description: AppLocalizations.of(context)!.description3,
+          ),
+          decoration: PageDecoration(
+            fullScreen: false,
+            pageColor: isDark
+                ? AppColors.backgroundDarkColor
+                : AppColors.backgroundColor,
+          ),
+        ),
+        PageViewModel(
+          title: '',
+          bodyWidget: OnboardingOtherPageItem.build(
+            context: context,
+            isDark: isDark,
+            topImagePath: isDark
+                ? AppAssets.eventlyOnBordDark
+                : AppAssets.eventlyOnBordLight,
+            centerImagePath: isDark
+                ? AppAssets.onboardingdark4
+                : AppAssets.onboarding4,
+            title: AppLocalizations.of(context)!.titel4,
+            description: AppLocalizations.of(context)!.description4,
+          ),
+          decoration: PageDecoration(
+            fullScreen: false,
+            pageColor: isDark
+                ? AppColors.backgroundDarkColor
+                : AppColors.backgroundColor,
+          ),
         ),
       ],
 
@@ -59,255 +136,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           height: 50.h,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: themeProvider.appTheme == ThemeMode.dark
+              backgroundColor: isDark
                   ? AppColors.primarydarkColor
                   : AppColors.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.r),
               ),
             ),
-            onPressed: () => _goToHome(context),
+            onPressed: () {
+              int totalPages = 4;
+              if (currentIndex < totalPages - 1) {
+                introKey.currentState?.animateScroll(currentIndex + 1);
+              } else {
+                _goToHome(context);
+              }
+            },
             child: Text(
-              AppLocalizations.of(context)!.bottomOnBoard1,
+              currentIndex == 0
+                  ? AppLocalizations.of(context)!.bottomOnBoard1
+                  : (currentIndex == 3
+                        ? "Get Started"
+                        : AppLocalizations.of(context)!.bottomOnBoard),
               style: AppTextStyles.white20w500,
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  PageViewModel buildPage({
-    required BuildContext context,
-    required LanguageProvider languageProvider,
-    required String topImagePath,
-    required centerImagePath,
-    required String title,
-    required String description,
-    required ThemeProvider themeProvider,
-  }) {
-    final bool isDark = themeProvider.appTheme == ThemeMode.dark;
-    final Color currentPrimary = isDark
-        ? AppColors.primarydarkColor
-        : AppColors.primaryColor;
-
-    return PageViewModel(
-      title: '',
-      bodyWidget: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(child: Image.asset(topImagePath)),
-
-              SizedBox(height: 30.h),
-
-              Center(child: Image.asset(centerImagePath)),
-
-              SizedBox(height: 16.h),
-
-              Text(
-                title,
-                style: AppTextStyles.black20w600.copyWith(
-                  color: isDark ? AppColors.whiteColor : AppColors.blackColor,
-                ),
-              ),
-
-              SizedBox(height: 6.h),
-
-              Text(
-                description,
-                textAlign: TextAlign.start,
-                style: AppTextStyles.gray16w400.copyWith(
-                  color: isDark
-                      ? AppColors.darkThemesecText
-                      : AppColors.secTextColor,
-                ),
-              ),
-
-              SizedBox(height: 16.h),
-
-              Row(
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.language,
-                    style: AppTextStyles.primary18w500.copyWith(
-                      color: isDark
-                          ? AppColors.whiteColor
-                          : AppColors.primaryColor,
-                    ),
-                  ),
-                  const Spacer(),
-                  InkWell(
-                    onTap: () {
-                      languageProvider.changeLanguage('en');
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 6.h,
-                      ),
-                      decoration: BoxDecoration(
-                        color: languageProvider.appLanguage == 'en'
-                            ? currentPrimary
-                            : (isDark
-                                  ? Colors.transparent
-                                  : AppColors.whiteColor),
-                        borderRadius: BorderRadius.circular(8.r),
-                        border: (languageProvider.appLanguage != 'en' && isDark)
-                            ? Border.all(color: currentPrimary)
-                            : null,
-                      ),
-                      child: Text(
-                        AppLocalizations.of(context)!.english,
-                        style: languageProvider.appLanguage == 'en'
-                            ? AppTextStyles.white14w600
-                            : AppTextStyles.primary14w600.copyWith(
-                                color: isDark
-                                    ? AppColors.whiteColor
-                                    : AppColors.primaryColor,
-                              ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  InkWell(
-                    onTap: () {
-                      languageProvider.changeLanguage('ar');
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 6.h,
-                      ),
-                      decoration: BoxDecoration(
-                        color: languageProvider.appLanguage == 'ar'
-                            ? currentPrimary
-                            : (isDark
-                                  ? Colors.transparent
-                                  : AppColors.whiteColor),
-                        borderRadius: BorderRadius.circular(8.r),
-                        border: (languageProvider.appLanguage != 'ar' && isDark)
-                            ? Border.all(color: currentPrimary)
-                            : null,
-                      ),
-                      child: Text(
-                        AppLocalizations.of(context)!.arabic,
-                        style: languageProvider.appLanguage == 'ar'
-                            ? AppTextStyles.white14w600
-                            : AppTextStyles.primary14w600.copyWith(
-                                color: isDark
-                                    ? AppColors.whiteColor
-                                    : AppColors.primaryColor,
-                              ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 20.h),
-
-              Row(
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.theme,
-                    style: AppTextStyles.primary18w500.copyWith(
-                      color: isDark
-                          ? AppColors.whiteColor
-                          : AppColors.primaryColor,
-                    ),
-                  ),
-                  const Spacer(),
-
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        themeProvider.changeTheme(ThemeMode.light);
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 6.h,
-                      ),
-                      decoration: BoxDecoration(
-                        color: themeProvider.appTheme == ThemeMode.light
-                            ? currentPrimary
-                            : (isDark
-                                  ? Colors.transparent
-                                  : AppColors.whiteColor),
-                        borderRadius: BorderRadius.circular(8.r),
-                        border:
-                            (themeProvider.appTheme != ThemeMode.light &&
-                                isDark)
-                            ? Border.all(color: currentPrimary)
-                            : null,
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/sun.svg',
-                        colorFilter: ColorFilter.mode(
-                          themeProvider.appTheme == ThemeMode.light
-                              ? Colors.white
-                              : (isDark
-                                    ? AppColors.whiteColor
-                                    : AppColors.primaryColor),
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(width: 8.w),
-
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        themeProvider.changeTheme(ThemeMode.dark);
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16.w,
-                        vertical: 6.h,
-                      ),
-                      decoration: BoxDecoration(
-                        color: themeProvider.appTheme == ThemeMode.dark
-                            ? currentPrimary
-                            : AppColors.whiteColor,
-                        borderRadius: BorderRadius.circular(8.r),
-                        border:
-                            (themeProvider.appTheme != ThemeMode.dark && isDark)
-                            ? Border.all(color: currentPrimary)
-                            : null,
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/moon.svg',
-                        colorFilter: ColorFilter.mode(
-                          themeProvider.appTheme == ThemeMode.dark
-                              ? Colors.white
-                              : AppColors.primaryColor,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 30.h),
-            ],
-          ),
-        ),
-      ),
-
-      decoration: PageDecoration(
-        fullScreen: false,
-        pageColor: isDark
-            ? AppColors.backgroundDarkColor
-            : AppColors.backgroundColor,
       ),
     );
   }
