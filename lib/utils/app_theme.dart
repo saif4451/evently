@@ -7,7 +7,6 @@ class AppTheme {
     primaryColor: AppColors.primaryColor,
   );
   static ThemeData darkMode = ThemeData(
-   
     scaffoldBackgroundColor: AppColors.backgroundDarkColor,
     primaryColor: AppColors.primarydarkColor,
   );

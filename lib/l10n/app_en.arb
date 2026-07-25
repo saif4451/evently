@@ -27,11 +27,8 @@
   "donthaveaccount": "Don’t have an account ?",
   "or": "Or",
   "loginwithGoogle": "Login with Google",
-  "createyouraccount":"Create your account",
-  "alreadyhaveanaccount":"Already have an account?",
-  "enteryourname":"Enter your name",
-  "confirmyourpassword":"Confirm your password"
-
-
-  
+  "createyouraccount": "Create your account",
+  "alreadyhaveanaccount": "Already have an account?",
+  "enteryourname": "Enter your name",
+  "confirmyourpassword": "Confirm your password"
 }

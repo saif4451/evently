@@ -24,7 +24,7 @@ class ThemeSelectionRow extends StatelessWidget {
           AppLocalizations.of(context)!.theme,
           style: AppTextStyles.primary18w500.copyWith(
             color: isDark ? AppColors.whiteColor : AppColors.primaryColor,
-          ), 
+          ),
         ),
         const Spacer(),
         _buildThemeButton(

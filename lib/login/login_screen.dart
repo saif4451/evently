@@ -86,10 +86,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRoutes.signUpRouteName,
-                        );
+                        Navigator.pushNamed(context, AppRoutes.signUpRouteName);
                       },
                       child: Text(
                         ' ${AppLocalizations.of(context)!.signup} ',

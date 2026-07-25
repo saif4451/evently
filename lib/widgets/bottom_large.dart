@@ -6,9 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class BottomLarge extends StatelessWidget {
- final String text;
- final VoidCallback onTap;
-  const BottomLarge({super.key, required this.text,required this.onTap});
+  final String text;
+  final VoidCallback onTap;
+  const BottomLarge({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,16 @@ class BottomLarge extends StatelessWidget {
       child: Container(
         width: 340.w,
         height: 48.h,
-        padding: EdgeInsets.symmetric( vertical: 9.h),
+        padding: EdgeInsets.symmetric(vertical: 9.h),
         decoration: BoxDecoration(
           color: isDark ? AppColors.primarydarkColor : AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Text(text,style: AppTextStyles.white20w500,textAlign: TextAlign.center,),
+        child: Text(
+          text,
+          style: AppTextStyles.white20w500,
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

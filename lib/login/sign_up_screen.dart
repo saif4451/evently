@@ -42,13 +42,31 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                buildEmailTextField(isDark: isDark, context: context,text: AppLocalizations.of(context)!.enteryourname,iconPath: AppAssets.iconProfile),
+                buildEmailTextField(
+                  isDark: isDark,
+                  context: context,
+                  text: AppLocalizations.of(context)!.enteryourname,
+                  iconPath: AppAssets.iconProfile,
+                ),
                 SizedBox(height: 16.h),
-                buildEmailTextField(isDark: isDark, context: context,text: AppLocalizations.of(context)!.hintEmail,iconPath: AppAssets.iconEmail),
+                buildEmailTextField(
+                  isDark: isDark,
+                  context: context,
+                  text: AppLocalizations.of(context)!.hintEmail,
+                  iconPath: AppAssets.iconEmail,
+                ),
                 SizedBox(height: 16.h),
-                buildPasswordTextField(isDark: isDark, context: context,texthint: AppLocalizations.of(context)!.hintPassword),
+                buildPasswordTextField(
+                  isDark: isDark,
+                  context: context,
+                  texthint: AppLocalizations.of(context)!.hintPassword,
+                ),
                 SizedBox(height: 16.h),
-                buildPasswordTextField(isDark: isDark, context: context,texthint: AppLocalizations.of(context)!.confirmyourpassword),
+                buildPasswordTextField(
+                  isDark: isDark,
+                  context: context,
+                  texthint: AppLocalizations.of(context)!.confirmyourpassword,
+                ),
                 SizedBox(height: 16.h),
 
                 SizedBox(height: 40.h),
@@ -177,7 +195,7 @@ class SignUpScreen extends StatelessWidget {
     required String text,
     required bool isDark,
     required BuildContext context,
-    required String iconPath
+    required String iconPath,
   }) {
     return TextField(
       style: AppTextStyles.primary14w600.copyWith(
@@ -223,7 +241,7 @@ class SignUpScreen extends StatelessWidget {
   TextField buildPasswordTextField({
     required bool isDark,
     required BuildContext context,
-    required String texthint
+    required String texthint,
   }) {
     return TextField(
       style: AppTextStyles.primary14w600.copyWith(

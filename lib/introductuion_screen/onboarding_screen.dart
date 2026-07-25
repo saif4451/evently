@@ -166,8 +166,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void goToLogin(BuildContext context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) =>  LoginScreen()),
-    );
+    Navigator.of(
+      context,
+    ).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }
