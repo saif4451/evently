@@ -23,5 +23,12 @@
   "forgetPasss": "هل نسيت كلمة المرور",
   "login": "تسجيل الدخول",
   "signup": "إنشاء حساب",
-  "resetPassword": "إعادة تعيين كلمة المرور"
+  "resetPassword": "إعادة تعيين كلمة المرور",
+  "donthaveaccount": "أليس لديك حساب؟",
+  "or": "أو",
+  "loginwithGoogle": "تسجيل الدخوب بواسطة جوجل",
+  "createyouraccount": "انشاء حساب جديد",
+  "alreadyhaveanaccount":"لديك حساب ",
+  "enteryourname":"ادخل اسمك",
+  "confirmyourpassword":"تاكيد كلمه السر"
 }

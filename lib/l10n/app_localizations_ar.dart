@@ -86,4 +86,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get resetPassword => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get donthaveaccount => 'أليس لديك حساب؟';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get loginwithGoogle => 'تسجيل الدخوب بواسطة جوجل';
+
+  @override
+  String get createyouraccount => 'انشاء حساب جديد';
+
+  @override
+  String get alreadyhaveanaccount => 'لديك حساب ';
+
+  @override
+  String get enteryourname => 'ادخل اسمك';
+
+  @override
+  String get confirmyourpassword => 'تاكيد كلمه السر';
 }

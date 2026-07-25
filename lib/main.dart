@@ -3,6 +3,7 @@ import 'package:evently/introductuion_screen/onboarding_screen.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/login/login_screen.dart';
 import 'package:evently/login/reset_password.dart';
+import 'package:evently/login/sign_up_screen.dart';
 import 'package:evently/providers/language_provider.dart';
 import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_routes.dart';
@@ -51,6 +52,7 @@ class _MyAppState extends State<MyApp> {
             AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
             AppRoutes.loginRouteName: (context) => LoginScreen(),
             AppRoutes.resetPasswordRouteName: (context) => ResetPassword(),
+            AppRoutes.signUpRouteName: (context) => SignUpScreen(),
           },
           theme: AppTheme.lightMode,
           darkTheme: AppTheme.darkMode,

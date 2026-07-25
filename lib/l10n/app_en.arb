@@ -23,5 +23,15 @@
   "forgetPasss": "Forget Password ",
   "login": "Login",
   "signup": "Sign up",
-  "resetPassword": "Reset password"
+  "resetPassword": "Reset password",
+  "donthaveaccount": "Don’t have an account ?",
+  "or": "Or",
+  "loginwithGoogle": "Login with Google",
+  "createyouraccount":"Create your account",
+  "alreadyhaveanaccount":"Already have an account?",
+  "enteryourname":"Enter your name",
+  "confirmyourpassword":"Confirm your password"
+
+
+  
 }

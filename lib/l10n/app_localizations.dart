@@ -247,6 +247,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reset password'**
   String get resetPassword;
+
+  /// No description provided for @donthaveaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t have an account ?'**
+  String get donthaveaccount;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @loginwithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Google'**
+  String get loginwithGoogle;
+
+  /// No description provided for @createyouraccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get createyouraccount;
+
+  /// No description provided for @alreadyhaveanaccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyhaveanaccount;
+
+  /// No description provided for @enteryourname.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get enteryourname;
+
+  /// No description provided for @confirmyourpassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your password'**
+  String get confirmyourpassword;
 }
 
 class _AppLocalizationsDelegate

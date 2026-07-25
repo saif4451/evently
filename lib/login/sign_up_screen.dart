@@ -10,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 35.h),
                 //login Text
                 Text(
-                  AppLocalizations.of(context)!.loginTo,
+                  AppLocalizations.of(context)!.createyouraccount,
                   style: AppTextStyles.primary24w600.copyWith(
                     color: themeProvider.appTheme == ThemeMode.dark
                         ? AppColors.whiteColor
@@ -42,42 +42,28 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                buildEmailTextField(isDark: isDark, context: context),
+                buildEmailTextField(isDark: isDark, context: context,text: AppLocalizations.of(context)!.enteryourname,iconPath: AppAssets.iconProfile),
                 SizedBox(height: 16.h),
-                buildPasswordTextField(isDark: isDark, context: context),
+                buildEmailTextField(isDark: isDark, context: context,text: AppLocalizations.of(context)!.hintEmail,iconPath: AppAssets.iconEmail),
                 SizedBox(height: 16.h),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.resetPasswordRouteName,
-                    );
-                  },
-                  child: Text(
-                    textAlign: TextAlign.end,
-                    AppLocalizations.of(context)!.forgetPass,
-                    style: AppTextStyles.primary14w600.copyWith(
-                      color: isDark
-                          ? AppColors.primarydarkColor
-                          : AppColors.primaryColor,
-                      decoration: TextDecoration.underline,
-                      decorationColor: isDark
-                          ? AppColors.primarydarkColor
-                          : AppColors.primaryColor,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 45.h),
+                buildPasswordTextField(isDark: isDark, context: context,texthint: AppLocalizations.of(context)!.hintPassword),
+                SizedBox(height: 16.h),
+                buildPasswordTextField(isDark: isDark, context: context,texthint: AppLocalizations.of(context)!.confirmyourpassword),
+                SizedBox(height: 16.h),
+
+                SizedBox(height: 40.h),
+                //login bottom
                 BottomLarge(
-                  text: AppLocalizations.of(context)!.login,
+                  text: AppLocalizations.of(context)!.signup,
                   onTap: () {},
                 ),
-                SizedBox(height: 45.h),
+                SizedBox(height: 30.h),
+                //Already have an account
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.donthaveaccount,
+                      AppLocalizations.of(context)!.alreadyhaveanaccount,
                       style: AppTextStyles.black14w400.copyWith(
                         color: isDark
                             ? AppColors.whiteColor
@@ -86,13 +72,13 @@ class LoginScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(
+                        Navigator.popAndPushNamed(
                           context,
-                          AppRoutes.signUpRouteName,
+                          AppRoutes.loginRouteName,
                         );
                       },
                       child: Text(
-                        ' ${AppLocalizations.of(context)!.signup} ',
+                        ' ${AppLocalizations.of(context)!.login} ',
                         style: AppTextStyles.black14w400.copyWith(
                           color: isDark
                               ? AppColors.primarydarkColor
@@ -107,6 +93,7 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 30.h),
+                //or
                 Row(
                   children: [
                     Container(
@@ -187,8 +174,10 @@ class LoginScreen extends StatelessWidget {
   }
 
   TextField buildEmailTextField({
+    required String text,
     required bool isDark,
     required BuildContext context,
+    required String iconPath
   }) {
     return TextField(
       style: AppTextStyles.primary14w600.copyWith(
@@ -202,7 +191,7 @@ class LoginScreen extends StatelessWidget {
             color: isDark ? AppColors.primarydarkColor : AppColors.secTextColor,
           ),
         ),
-        hintText: AppLocalizations.of(context)!.hintEmail,
+        hintText: text,
         hintStyle: AppTextStyles.gray14w400.copyWith(
           color: isDark ? AppColors.whiteColor : AppColors.secTextColor,
         ),
@@ -213,7 +202,7 @@ class LoginScreen extends StatelessWidget {
         prefixIcon: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
           child: SvgPicture.asset(
-            AppAssets.iconEmail,
+            iconPath,
             colorFilter: ColorFilter.mode(
               isDark ? AppColors.whiteColor : AppColors.secTextColor,
               BlendMode.srcIn,
@@ -234,6 +223,7 @@ class LoginScreen extends StatelessWidget {
   TextField buildPasswordTextField({
     required bool isDark,
     required BuildContext context,
+    required String texthint
   }) {
     return TextField(
       style: AppTextStyles.primary14w600.copyWith(
@@ -247,7 +237,7 @@ class LoginScreen extends StatelessWidget {
             color: isDark ? AppColors.primarydarkColor : AppColors.secTextColor,
           ),
         ),
-        hintText: AppLocalizations.of(context)!.hintPassword,
+        hintText: texthint,
         hintStyle: AppTextStyles.gray14w400.copyWith(
           color: isDark ? AppColors.whiteColor : AppColors.secTextColor,
         ),

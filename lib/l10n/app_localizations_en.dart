@@ -86,4 +86,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resetPassword => 'Reset password';
+
+  @override
+  String get donthaveaccount => 'Don’t have an account ?';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get loginwithGoogle => 'Login with Google';
+
+  @override
+  String get createyouraccount => 'Create your account';
+
+  @override
+  String get alreadyhaveanaccount => 'Already have an account?';
+
+  @override
+  String get enteryourname => 'Enter your name';
+
+  @override
+  String get confirmyourpassword => 'Confirm your password';
 }
