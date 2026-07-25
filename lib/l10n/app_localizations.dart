@@ -199,6 +199,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.'**
   String get description4;
+
+  /// No description provided for @loginTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Login to your account'**
+  String get loginTo;
+
+  /// No description provided for @hintEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email'**
+  String get hintEmail;
+
+  /// No description provided for @hintPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get hintPassword;
+
+  /// No description provided for @forgetPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password? '**
+  String get forgetPass;
+
+  /// No description provided for @forgetPasss.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password '**
+  String get forgetPasss;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @signup.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get signup;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password'**
+  String get resetPassword;
 }
 
 class _AppLocalizationsDelegate

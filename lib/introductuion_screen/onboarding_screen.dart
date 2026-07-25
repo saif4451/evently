@@ -1,6 +1,6 @@
-import 'package:evently/home/home_screen.dart';
 import 'package:evently/introductuion_screen/onboarding_other_page_item.dart.dart';
 import 'package:evently/l10n/app_localizations.dart';
+import 'package:evently/login/login_screen.dart';
 import 'package:evently/providers/language_provider.dart';
 import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_assets.dart';
@@ -148,7 +148,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               if (currentIndex < totalPages - 1) {
                 introKey.currentState?.animateScroll(currentIndex + 1);
               } else {
-                _goToHome(context);
+                goToLogin(context);
               }
             },
             child: Text(
@@ -165,9 +165,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  void _goToHome(BuildContext context) {
+  void goToLogin(BuildContext context) {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const HomeScreen()),
+      MaterialPageRoute(builder: (context) =>  LoginScreen()),
     );
   }
 }

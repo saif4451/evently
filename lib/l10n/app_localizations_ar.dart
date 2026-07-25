@@ -62,4 +62,28 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get description4 =>
       'اجعل كل فعالية لا تُنسى من خلال مشاركة التجربة مع الآخرين. تتيح لك منصتنا دعوة الأصدقاء، وإبقاء الجميع على اطلاع، والاحتفال باللحظات معاً. التقط الحماس وشاركه مع شبكتك، ليتسنى لك استرجاع أبرز اللحظات والاعتزاز بالذكريات.';
+
+  @override
+  String get loginTo => 'تسجيل الدخول الي حسابك ';
+
+  @override
+  String get hintEmail => 'أدخل بريدك الإلكتروني';
+
+  @override
+  String get hintPassword => 'أدخل كلمة المرور';
+
+  @override
+  String get forgetPass => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get forgetPasss => 'هل نسيت كلمة المرور';
+
+  @override
+  String get login => 'تسجيل الدخول';
+
+  @override
+  String get signup => 'إنشاء حساب';
+
+  @override
+  String get resetPassword => 'إعادة تعيين كلمة المرور';
 }

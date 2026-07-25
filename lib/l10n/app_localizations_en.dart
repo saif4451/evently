@@ -62,4 +62,28 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get description4 =>
       'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.';
+
+  @override
+  String get loginTo => 'Login to your account';
+
+  @override
+  String get hintEmail => 'Enter your email';
+
+  @override
+  String get hintPassword => 'Enter your password';
+
+  @override
+  String get forgetPass => 'Forget Password? ';
+
+  @override
+  String get forgetPasss => 'Forget Password ';
+
+  @override
+  String get login => 'Login';
+
+  @override
+  String get signup => 'Sign up';
+
+  @override
+  String get resetPassword => 'Reset password';
 }

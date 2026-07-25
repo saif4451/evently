@@ -1,6 +1,7 @@
 class AppAssets {
   static const String eventlyLogo = 'assets/Evently.png';
   static const String forgetPassword = 'assets/forgetpassowrd.png';
+  static const String forgetPasswordDark = 'assets/change-setting.png';
   static const String googleLogo = 'assets/google.png';
   static const String routeLogo = 'assets/Logo.png';
   static const String onboarding1 = 'assets/onboarding1.png';
