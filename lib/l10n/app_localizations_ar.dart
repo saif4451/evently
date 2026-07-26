@@ -107,4 +107,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get confirmyourpassword => 'تاكيد كلمه السر';
+
+  @override
+  String get welcomeBack => 'اهلا بعودتك';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get sport => 'الرياضة';
+
+  @override
+  String get birthday => 'عيدميلاد';
+
+  @override
+  String get home => 'الرئيسيهة';
+
+  @override
+  String get favorite => 'المفضلة';
+
+  @override
+  String get profile => 'الملف الشخصي';
 }

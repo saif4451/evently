@@ -30,5 +30,12 @@
   "createyouraccount": "انشاء حساب جديد",
   "alreadyhaveanaccount": "لديك حساب ",
   "enteryourname": "ادخل اسمك",
-  "confirmyourpassword": "تاكيد كلمه السر"
+  "confirmyourpassword": "تاكيد كلمه السر",
+  "welcomeBack": "اهلا بعودتك",
+  "all": "الكل",
+  "sport": "الرياضة",
+  "birthday": "عيدميلاد",
+  "home": "الرئيسيهة",
+  "favorite": "المفضلة",
+  "profile": "الملف الشخصي"
 }

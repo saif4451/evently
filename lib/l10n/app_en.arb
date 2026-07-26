@@ -30,5 +30,12 @@
   "createyouraccount": "Create your account",
   "alreadyhaveanaccount": "Already have an account?",
   "enteryourname": "Enter your name",
-  "confirmyourpassword": "Confirm your password"
+  "confirmyourpassword": "Confirm your password",
+  "welcomeBack": "Welcome Back ",
+  "all": "All",
+  "sport": "Sport",
+  "birthday": "Birthday",
+  "home": "Home",
+  "favorite": "Favorite",
+  "profile": "Profile"
 }

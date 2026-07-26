@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 17.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -70,7 +70,9 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 45.h),
                 BottomLarge(
                   text: AppLocalizations.of(context)!.login,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.homeRouteName);
+                  },
                 ),
                 SizedBox(height: 45.h),
                 Row(

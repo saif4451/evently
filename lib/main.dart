@@ -1,4 +1,4 @@
-import 'package:evently/home/home_screen.dart';
+import 'package:evently/home/main_screen.dart';
 import 'package:evently/introductuion_screen/onboarding_screen.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/login/login_screen.dart';
@@ -26,7 +26,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+ const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
           supportedLocales: AppLocalizations.supportedLocales,
           initialRoute: AppRoutes.onboardingRouteName,
           routes: {
-            AppRoutes.homeRouteName: (context) => HomeScreen(),
+            AppRoutes.homeRouteName: (context) => MainScreen(),
             AppRoutes.onboardingRouteName: (context) => OnboardingScreen(),
             AppRoutes.loginRouteName: (context) => LoginScreen(),
             AppRoutes.resetPasswordRouteName: (context) => ResetPassword(),

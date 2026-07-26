@@ -155,7 +155,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               currentIndex == 0
                   ? AppLocalizations.of(context)!.bottomOnBoard1
                   : (currentIndex == 3
-                        ? "Get Started"
+                        ? AppLocalizations.of(context)!.lastPageBottom
                         : AppLocalizations.of(context)!.bottomOnBoard),
               style: AppTextStyles.white20w500,
             ),
