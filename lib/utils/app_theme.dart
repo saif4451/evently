@@ -21,7 +21,7 @@ class AppTheme {
   static ThemeData darkMode = ThemeData(
     scaffoldBackgroundColor: AppColors.backgroundDarkColor,
     primaryColor: AppColors.primarydarkColor,
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.backgroundDarkColor,
       selectedItemColor: AppColors.primarydarkColor,
       unselectedItemColor: AppColors.secTextColor,

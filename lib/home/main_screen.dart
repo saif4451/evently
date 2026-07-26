@@ -2,7 +2,6 @@ import 'package:evently/home/taps/favorite/favorite.dart';
 import 'package:evently/home/taps/home/home_screen.dart';
 import 'package:evently/home/taps/profile/profile_tab.dart';
 import 'package:evently/l10n/app_localizations.dart';
-
 import 'package:evently/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

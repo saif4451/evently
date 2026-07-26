@@ -20,7 +20,8 @@ class CatogryListViewItem extends StatelessWidget {
     var themeProvider = Provider.of<ThemeProvider>(context);
     final bool isDark = themeProvider.appTheme == ThemeMode.dark;
     return InkWell(
-      child: Container(padding: EdgeInsets.symmetric(horizontal: 12.w,),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w),
         decoration: BoxDecoration(
           color: isDark ? AppColors.primarydarkColor : AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16),

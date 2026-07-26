@@ -27,6 +27,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get light => 'مضيئ';
 
   @override
+  String get darkmode => 'الوضع المظلم';
+
+  @override
   String get titel1 => 'خصّص تجربتك';
 
   @override
@@ -128,4 +131,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get profile => 'الملف الشخصي';
+
+  @override
+  String get logout => 'تسجيل الخروج';
 }

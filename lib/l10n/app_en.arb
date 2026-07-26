@@ -5,6 +5,7 @@
   "theme": "Theme",
   "dark": "Dark",
   "light": "Light",
+  "darkmode": "Dark Mode",
   "titel1": "Personalize Your Experience",
   "description1": "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
   "bottomOnBoard1": "Let's start",
@@ -37,5 +38,6 @@
   "birthday": "Birthday",
   "home": "Home",
   "favorite": "Favorite",
-  "profile": "Profile"
+  "profile": "Profile",
+  "logout": "Log out"
 }

@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Light'**
   String get light;
 
+  /// No description provided for @darkmode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get darkmode;
+
   /// No description provided for @titel1.
   ///
   /// In en, this message translates to:
@@ -331,6 +337,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate

@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get light => 'Light';
 
   @override
+  String get darkmode => 'Dark Mode';
+
+  @override
   String get titel1 => 'Personalize Your Experience';
 
   @override
@@ -128,4 +131,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profile => 'Profile';
+
+  @override
+  String get logout => 'Log out';
 }
