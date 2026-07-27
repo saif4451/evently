@@ -22,6 +22,7 @@ class AppAssets {
   static const String iconSearch = 'assets/ic_search.svg';
   static const String iconSport = 'assets/ic_sport.svg';
   static const String sun = 'assets/sun.svg';
+  static const String book = 'assets/book.svg';
   static const String moon = 'assets/moon.svg';
   static const String eventlyOnBordLight = 'assets/eventlyon.png';
   static const String eventlyOnBordDark = 'assets/eveotlyon_dark.png';
@@ -29,4 +30,10 @@ class AppAssets {
   static const String onboardingdark2 = 'assets/onboarding2dark.png';
   static const String onboardingdark3 = 'assets/onboarding3dark.png';
   static const String onboardingdark4 = 'assets/onboarding4dark.png';
+  static const String birthdayLight = 'assets/birthdaylight.png';
+  static const String meetingLight = 'assets/meetinglight.png';
+  static const String exhibitionLight = 'assets/exhibition.png';
+  static const String birthdayDark = 'assets/birthdaydark.png';
+  static const String meetingDark = 'assets/meetingdark.png';
+  static const String exhibitionDark = 'assets/exhibition.png';
 }

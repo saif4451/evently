@@ -134,4 +134,53 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get logout => 'تسجيل الخروج';
+
+  @override
+  String get meeting => 'اجتماع';
+
+  @override
+  String get bookclub => 'نادي الكتاب';
+
+  @override
+  String get exhibition => 'معرض';
+
+  @override
+  String get jan => 'يناير';
+
+  @override
+  String get feb => 'فبراير';
+
+  @override
+  String get mar => 'مارس';
+
+  @override
+  String get apr => 'ابريل';
+
+  @override
+  String get may => 'مايو';
+
+  @override
+  String get jun => 'يونيو';
+
+  @override
+  String get jul => 'يوليو';
+
+  @override
+  String get aug => 'اغسطس';
+
+  @override
+  String get sep => 'سيبتمير';
+
+  @override
+  String get oct => 'اكتوبر';
+
+  @override
+  String get nov => 'نوفمبر';
+
+  @override
+  String get dec => 'ديسمبر';
+
+  @override
+  String get meetingforUpdatingTheDevelopmentMethod =>
+      'اجتماع لتحسين طريقه التطوير';
 }

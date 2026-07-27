@@ -5,24 +5,46 @@ import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_text_styles.dart';
 import 'package:evently/widgets/catogry_list_view_item.dart';
+import 'package:evently/widgets/event_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<LanguageProvider>(context);
     var themeProvider = Provider.of<ThemeProvider>(context);
     final bool isDark = themeProvider.appTheme == ThemeMode.dark;
+
     List<String> iconList = [
       AppAssets.iconAll,
       AppAssets.iconSport,
       AppAssets.iconBirthday,
+      AppAssets.iconHeart,
+      AppAssets.book,
+      AppAssets.book,
     ];
+
+    List<String> eventName = [
+      AppLocalizations.of(context)!.all,
+      AppLocalizations.of(context)!.sport,
+      AppLocalizations.of(context)!.birthday,
+      AppLocalizations.of(context)!.meeting,
+      AppLocalizations.of(context)!.bookclub,
+      AppLocalizations.of(context)!.exhibition,
+    ];
+
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -33,23 +55,20 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  spacing: 10.h,
                   children: [
                     Row(
                       children: [
-                        //welcome back text
                         Text(
                           AppLocalizations.of(context)!.welcomeBack,
-                          style: AppTextStyles.black18w500.copyWith(
+                          style: AppTextStyles.black14w400.copyWith(
                             color: isDark
                                 ? AppColors.whiteColor
                                 : AppColors.secTextColor,
                           ),
                         ),
-
                         Text(
-                          ' ✨ ',
-                          style: AppTextStyles.black18w500.copyWith(
+                          '✨',
+                          style: AppTextStyles.black14w400.copyWith(
                             color: isDark
                                 ? AppColors.whiteColor
                                 : AppColors.secTextColor,
@@ -57,6 +76,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    SizedBox(height: 5.h),
                     Text(
                       'Saif Moamer',
                       style: AppTextStyles.black20w500.copyWith(
@@ -77,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                     BlendMode.srcIn,
                   ),
                 ),
-                SizedBox(width: 4.w),
+                SizedBox(width: 8.w),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 5.h),
                   decoration: BoxDecoration(
@@ -93,22 +113,45 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 16.h),
+            SizedBox(height: 24.h),
+            // list view catogery iteeeeeems
             SizedBox(
-              height: 30.h,
-
+              height: 40.h,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return CatogryListViewItem(
-                    label: AppLocalizations.of(context)!.all,
-                    iconPath: iconList[index],
+                  return InkWell(
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                    },
+                    child: CatogryListViewItem(
+                      isSelected: selectedIndex == index,
+                      label: eventName[index],
+                      iconPath: iconList[index],
+                    ),
                   );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(width: 7.w);
                 },
-                itemCount: 3,
+                itemCount: eventName.length,
+              ),
+            ),
+            SizedBox(height: 24.h),
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return EventItemWidget(
+                    imageDark: AppAssets.birthdayDark,
+                    imageLight: AppAssets.birthdayLight,
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 16.h);
+                },
+                itemCount: 4,
               ),
             ),
           ],

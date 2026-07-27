@@ -39,5 +39,22 @@
   "home": "Home",
   "favorite": "Favorite",
   "profile": "Profile",
-  "logout": "Log out"
+  "logout": "Log out",
+  "meeting":"Meeting",
+  "bookclub":"Book Club",
+  "exhibition":"Exhibition",
+  "jan":"Jan",
+  "feb":"Feb",
+  "mar":"Mar",
+  "apr":"Apr",
+  "may":"May",
+  "jun":"Jun",
+  "jul":"Jul",
+  "aug":"Aug",
+  "sep":"Sep",
+  "oct":"Oct",
+  "nov":"Nov",
+  "dec":"Dec",
+  "meetingforUpdatingTheDevelopmentMethod":"Meeting for Updating The Development Method "
+  
 }
