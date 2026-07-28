@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: isDark
                             ? AppColors.primarydarkColor
-                            : AppColors.secTextColor,
+                            : AppColors.border,
                       ),
                     ),
                     SizedBox(width: 7.h),
@@ -135,7 +135,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: isDark
                             ? AppColors.primarydarkColor
-                            : AppColors.secTextColor,
+                            : AppColors.border,
                       ),
                     ),
                   ],
@@ -156,7 +156,7 @@ class LoginScreen extends StatelessWidget {
                       border: BoxBorder.all(
                         color: isDark
                             ? AppColors.primarydarkColor
-                            : AppColors.secTextColor,
+                            : AppColors.border,
                       ),
                     ),
                     child: Row(
@@ -198,7 +198,7 @@ class LoginScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(
             width: 1,
-            color: isDark ? AppColors.primarydarkColor : AppColors.secTextColor,
+            color: isDark ? AppColors.primarydarkColor : AppColors.border,
           ),
         ),
         hintText: AppLocalizations.of(context)!.hintEmail,
@@ -208,7 +208,7 @@ class LoginScreen extends StatelessWidget {
         filled: true,
         fillColor: isDark
             ? AppColors.navyblueColor
-            : Color.fromARGB(97, 190, 179, 179),
+            : AppColors.whiteColor,
         prefixIcon: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
           child: SvgPicture.asset(
@@ -223,7 +223,7 @@ class LoginScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(
             width: 1,
-            color: isDark ? AppColors.primarydarkColor : AppColors.secTextColor,
+            color: isDark ? AppColors.primarydarkColor : AppColors.border,
           ),
         ),
       ),
@@ -243,7 +243,7 @@ class LoginScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(
             width: 1,
-            color: isDark ? AppColors.primarydarkColor : AppColors.secTextColor,
+            color: isDark ? AppColors.primarydarkColor : AppColors.border,
           ),
         ),
         hintText: AppLocalizations.of(context)!.hintPassword,
@@ -253,7 +253,7 @@ class LoginScreen extends StatelessWidget {
         filled: true,
         fillColor: isDark
             ? AppColors.navyblueColor
-            : Color.fromARGB(97, 190, 179, 179),
+            : AppColors.whiteColor,
         prefixIcon: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
           child: SvgPicture.asset(
@@ -268,7 +268,7 @@ class LoginScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(
             width: 1,
-            color: isDark ? AppColors.primarydarkColor : AppColors.secTextColor,
+            color: isDark ? AppColors.primarydarkColor : AppColors.border,
           ),
         ),
       ),

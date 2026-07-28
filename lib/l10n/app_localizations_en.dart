@@ -183,4 +183,31 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get meetingforUpdatingTheDevelopmentMethod =>
       'Meeting for Updating The Development Method ';
+
+  @override
+  String get addevent => 'Add event';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get eventTitle => 'Event Title';
+
+  @override
+  String get description => 'Description ';
+
+  @override
+  String get eventDescription => 'Event Description....';
+
+  @override
+  String get eventDate => 'Event Date';
+
+  @override
+  String get eventTime => 'Event Time';
+
+  @override
+  String get choosedate => 'Choose date';
+
+  @override
+  String get choosetime => 'Choose time';
 }

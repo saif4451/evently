@@ -439,6 +439,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Meeting for Updating The Development Method '**
   String get meetingforUpdatingTheDevelopmentMethod;
+
+  /// No description provided for @addevent.
+  ///
+  /// In en, this message translates to:
+  /// **'Add event'**
+  String get addevent;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title;
+
+  /// No description provided for @eventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Title'**
+  String get eventTitle;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description '**
+  String get description;
+
+  /// No description provided for @eventDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Description....'**
+  String get eventDescription;
+
+  /// No description provided for @eventDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Date'**
+  String get eventDate;
+
+  /// No description provided for @eventTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Time'**
+  String get eventTime;
+
+  /// No description provided for @choosedate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose date'**
+  String get choosedate;
+
+  /// No description provided for @choosetime.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose time'**
+  String get choosetime;
 }
 
 class _AppLocalizationsDelegate

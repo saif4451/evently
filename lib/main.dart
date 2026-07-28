@@ -1,3 +1,4 @@
+import 'package:evently/home/add_event.dart';
 import 'package:evently/home/main_screen.dart';
 import 'package:evently/home/taps/profile/profile_tab.dart';
 import 'package:evently/introductuion_screen/onboarding_screen.dart';
@@ -55,6 +56,7 @@ class _MyAppState extends State<MyApp> {
             AppRoutes.resetPasswordRouteName: (context) => ResetPassword(),
             AppRoutes.homeRouteName: (context) => MainScreen(),
             AppRoutes.profileTabRouteName: (context) => ProfileTab(),
+            AppRoutes.addEventRouteName: (context) => AddEvent(),
           },
           theme: AppTheme.lightMode,
           darkTheme: AppTheme.darkMode,

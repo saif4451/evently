@@ -32,8 +32,14 @@ class AppAssets {
   static const String onboardingdark4 = 'assets/onboarding4dark.png';
   static const String birthdayLight = 'assets/birthdaylight.png';
   static const String meetingLight = 'assets/meetinglight.png';
-  static const String exhibitionLight = 'assets/exhibition.png';
+  static const String exhibitionLight = 'assets/exhibitionlight.png';
   static const String birthdayDark = 'assets/birthdaydark.png';
   static const String meetingDark = 'assets/meetingdark.png';
   static const String exhibitionDark = 'assets/exhibition.png';
+  static const String sportLight = 'assets/Sportlight.png';
+  static const String sportDark = 'assets/Sportdark.png';
+  static const String bookclubLight = 'assets/BookClublight.png';
+  static const String bookclubDark = 'assets/bookclubdark.png';
+  static const String iconDate = 'assets/calender.svg';
+  static const String iconTime = 'assets/clock.svg';
 }

@@ -2,9 +2,13 @@ import 'package:evently/home/taps/favorite/favorite.dart';
 import 'package:evently/home/taps/home/home_screen.dart';
 import 'package:evently/home/taps/profile/profile_tab.dart';
 import 'package:evently/l10n/app_localizations.dart';
+import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_assets.dart';
+import 'package:evently/utils/app_colors.dart';
+import 'package:evently/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -19,6 +23,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
+    final bool isDark = themeProvider.appTheme == ThemeMode.dark;
+
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
@@ -51,6 +58,16 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: tabsList[selectedIndex],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.addEventRouteName);
+        },
+        backgroundColor: isDark
+            ? AppColors.primarydarkColor
+            : AppColors.primaryColor,
+        shape: CircleBorder(),
+        child: Icon(Icons.add, size: 24, color: AppColors.whiteColor),
+      ),
     );
   }
 
