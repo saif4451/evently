@@ -64,6 +64,10 @@
   "eventDate": "Event Date",
   "eventTime": "Event Time",
   "choosedate": "Choose date",
-  "choosetime": "Choose time"
- 
+  "choosetime": "Choose time",
+  "emailcannotbeempty": "Email cannot be empty",
+  "pleaseenteravalidemailaddress": "Please enter a valid email address",
+  "passwordcannotbeempty": "Password cannot be empty",
+  "passwordmustbeatleast6characterslong": "Password must be at least 6 characters long",
+  "cannotbeempty": "Cannot be empty"
 }

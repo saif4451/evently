@@ -210,4 +210,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get choosetime => 'اختر الوقت';
+
+  @override
+  String get emailcannotbeempty => 'لا يمكن ترك البريد الإلكتروني فارغاً';
+
+  @override
+  String get pleaseenteravalidemailaddress =>
+      'يرجى إدخال عنوان بريد إلكتروني صالح';
+
+  @override
+  String get passwordcannotbeempty => 'لا يمكن ترك كلمة المرور فارغة';
+
+  @override
+  String get passwordmustbeatleast6characterslong =>
+      'يجب ألا تقل كلمة المرور عن 6 أحرف';
+
+  @override
+  String get cannotbeempty => 'لا يمكن أن يكون فارغاً';
 }

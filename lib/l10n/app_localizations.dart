@@ -493,6 +493,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose time'**
   String get choosetime;
+
+  /// No description provided for @emailcannotbeempty.
+  ///
+  /// In en, this message translates to:
+  /// **'Email cannot be empty'**
+  String get emailcannotbeempty;
+
+  /// No description provided for @pleaseenteravalidemailaddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get pleaseenteravalidemailaddress;
+
+  /// No description provided for @passwordcannotbeempty.
+  ///
+  /// In en, this message translates to:
+  /// **'Password cannot be empty'**
+  String get passwordcannotbeempty;
+
+  /// No description provided for @passwordmustbeatleast6characterslong.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters long'**
+  String get passwordmustbeatleast6characterslong;
+
+  /// No description provided for @cannotbeempty.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot be empty'**
+  String get cannotbeempty;
 }
 
 class _AppLocalizationsDelegate

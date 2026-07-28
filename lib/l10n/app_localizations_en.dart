@@ -210,4 +210,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get choosetime => 'Choose time';
+
+  @override
+  String get emailcannotbeempty => 'Email cannot be empty';
+
+  @override
+  String get pleaseenteravalidemailaddress =>
+      'Please enter a valid email address';
+
+  @override
+  String get passwordcannotbeempty => 'Password cannot be empty';
+
+  @override
+  String get passwordmustbeatleast6characterslong =>
+      'Password must be at least 6 characters long';
+
+  @override
+  String get cannotbeempty => 'Cannot be empty';
 }

@@ -64,5 +64,10 @@
   "eventDate": "تاريخ الفعالية",
   "eventTime": "وقت الفعالية",
   "choosedate": "اختر التاريخ",
-  "choosetime": "اختر الوقت"
+  "choosetime": "اختر الوقت",
+  "emailcannotbeempty": "لا يمكن ترك البريد الإلكتروني فارغاً",
+  "pleaseenteravalidemailaddress": "يرجى إدخال عنوان بريد إلكتروني صالح",
+  "passwordcannotbeempty": "لا يمكن ترك كلمة المرور فارغة",
+  "passwordmustbeatleast6characterslong": "يجب ألا تقل كلمة المرور عن 6 أحرف",
+  "cannotbeempty": "لا يمكن أن يكون فارغاً"
 }
