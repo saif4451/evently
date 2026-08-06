@@ -6,10 +6,12 @@ import 'package:evently/utils/app_routes.dart';
 import 'package:evently/utils/app_text_styles.dart';
 import 'package:evently/utils/app_validators.dart';
 import 'package:evently/ui/widgets/bottom_large.dart';
+import 'package:evently/utils/dialog_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -19,7 +21,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -27,8 +29,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  bool _obscurePassword = true;
-  bool _obscureConfirmPassword = true;
+  bool obscurePassword = true;
+  bool obscureConfirmPassword = true;
 
   @override
   void dispose() {
@@ -50,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 17.w),
             child: Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -108,10 +110,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     isDark: isDark,
                     context: context,
                     texthint: AppLocalizations.of(context)!.hintPassword,
-                    obscureText: _obscurePassword,
+                    obscureText: obscurePassword,
                     onVisibilityPressed: () {
                       setState(() {
-                        _obscurePassword = !_obscurePassword;
+                        obscurePassword = !obscurePassword;
                       });
                     },
                   ),
@@ -132,10 +134,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     isDark: isDark,
                     context: context,
                     texthint: AppLocalizations.of(context)!.confirmyourpassword,
-                    obscureText: _obscureConfirmPassword,
+                    obscureText: obscureConfirmPassword,
                     onVisibilityPressed: () {
                       setState(() {
-                        _obscureConfirmPassword = !_obscureConfirmPassword;
+                        obscureConfirmPassword = !obscureConfirmPassword;
                       });
                     },
                   ),
@@ -145,7 +147,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   BottomLarge(
                     text: AppLocalizations.of(context)!.signup,
                     onTap: () {
-                      if (_formKey.currentState!.validate()) {}
+                      register();
                     },
                   ),
                   SizedBox(height: 30.h),
@@ -265,6 +267,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+
+  void register() async {
+    if (formKey.currentState!.validate()) {
+      DialogUtils.showLoading(context: context, loadingText: 'loading...');
+
+      try {
+        final credential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+              email: emailController.text.trim(),
+              password: passwordController.text,
+            );
+
+        await credential.user?.updateDisplayName(nameController.text.trim());
+
+        if (!mounted) return;
+
+        Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Account Created Successfully! 🎉'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+
+        Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+      } on FirebaseAuthException catch (e) {
+        if (!mounted) return;
+        Navigator.pop(context);
+        String errorMessage = 'Registration failed';
+        if (e.code == 'weak-password') {
+          errorMessage = 'The password provided is too weak.';
+        } else if (e.code == 'email-already-in-use') {
+          errorMessage = 'The account already exists for that email.';
+        } else if (e.code == 'invalid-email') {
+          errorMessage = 'The email address is invalid.';
+        }
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage), backgroundColor: Colors.red),
+        );
+      } catch (e) {
+        if (!mounted) return;
+        Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+        );
+      }
+    }
   }
 
   TextFormField buildEmailTextFormField({

@@ -6,6 +6,8 @@ import 'package:evently/utils/app_routes.dart';
 import 'package:evently/utils/app_text_styles.dart';
 import 'package:evently/utils/app_validators.dart';
 import 'package:evently/ui/widgets/bottom_large.dart';
+import 'package:evently/utils/dialog_utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,7 +21,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -44,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -94,9 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   BottomLarge(
                     text: AppLocalizations.of(context)!.login,
                     onTap: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushNamed(context, AppRoutes.homeRouteName);
-                      }
+                      login();
                     },
                   ),
                   SizedBox(height: 45.h),
@@ -211,6 +211,59 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void login() async {
+    if (formKey.currentState!.validate()) {
+      DialogUtils.showLoading(context: context, loadingText: 'loading...');
+
+      try {
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+              email: emailController.text.trim(),
+              password: passwordController.text,
+            );
+
+        print('User UID: ${credential.user?.uid}');
+
+        if (!mounted) return;
+
+        Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Login Successfully! 🎉'),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
+        );
+
+        Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+      } on FirebaseAuthException catch (e) {
+        if (!mounted) return;
+        Navigator.pop(context);
+
+        String errorMessage = 'Authentication failed';
+        if (e.code == 'user-not-found') {
+          errorMessage = 'No user found for that email.';
+        } else if (e.code == 'wrong-password') {
+          errorMessage = 'Wrong password provided.';
+        } else if (e.code == 'invalid-credential') {
+          errorMessage = 'Invalid email or password.';
+        }
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage), backgroundColor: Colors.red),
+        );
+      } catch (e) {
+        if (!mounted) return;
+        Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+        );
+      }
+    }
   }
 
   TextFormField buildEmailTextFormField({
