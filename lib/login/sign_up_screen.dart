@@ -1,5 +1,7 @@
 import 'package:evently/l10n/app_localizations.dart';
+import 'package:evently/model/my_user.dart';
 import 'package:evently/providers/theme_provider.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_routes.dart';
@@ -281,6 +283,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             );
 
         await credential.user?.updateDisplayName(nameController.text.trim());
+        MyUser myUser = MyUser(
+          userId: credential.user?.uid ?? '',
+          mail: emailController.text,
+          name: nameController.text.trim(),
+        );
+        var userProvider = Provider.of<UserProvider>(context, listen: false);
+        userProvider.updateUser(myUser);
 
         if (!mounted) return;
 

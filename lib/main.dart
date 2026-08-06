@@ -1,4 +1,5 @@
 import 'package:evently/firebase_options.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:evently/ui/home/add_event.dart';
 import 'package:evently/ui/home/main_screen.dart';
 import 'package:evently/ui/home/taps/profile/profile_tab.dart';
@@ -24,6 +25,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => LanguageProvider()),
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
 
       child: MyApp(),

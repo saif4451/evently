@@ -1,5 +1,6 @@
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/providers/theme_provider.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_routes.dart';
@@ -20,6 +21,7 @@ class ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
+    var userProvider = Provider.of<UserProvider>(context);
     var themeProvider = Provider.of<ThemeProvider>(context);
     final bool isDark = themeProvider.appTheme == ThemeMode.dark;
     return Padding(
@@ -44,14 +46,14 @@ class _ProfileTabState extends State<ProfileTab> {
           ),
           SizedBox(height: 12.h),
           Text(
-            'Saif Moamer',
+            userProvider.CurrenUser!.name,
             textAlign: TextAlign.center,
             style: AppTextStyles.black20w600.copyWith(
               color: isDark ? AppColors.whiteColor : AppColors.blackColor,
             ),
           ),
           Text(
-            'saifm.route@gmail.com',
+            userProvider.CurrenUser!.mail,
             textAlign: TextAlign.center,
             style: AppTextStyles.black14w400.copyWith(
               color: isDark ? AppColors.whiteColor : AppColors.secTextColor,

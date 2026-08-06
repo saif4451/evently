@@ -1,6 +1,7 @@
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/providers/language_provider.dart';
 import 'package:evently/providers/theme_provider.dart';
+import 'package:evently/providers/user_provider.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_text_styles.dart';
@@ -17,11 +18,13 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<LanguageProvider>(context);
+    var userProvider = Provider.of<UserProvider>(context);
     var themeProvider = Provider.of<ThemeProvider>(context);
     final bool isDark = themeProvider.appTheme == ThemeMode.dark;
 
@@ -76,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 5.h),
                     Text(
-                      'Saif Moamer',
+                      userProvider.CurrenUser!.name,
                       style: AppTextStyles.black20w500.copyWith(
                         color: isDark
                             ? AppColors.whiteColor
