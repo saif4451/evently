@@ -1,5 +1,5 @@
-import 'package:evently/introductuion_screen/language_selection_row.dart';
-import 'package:evently/introductuion_screen/theme_selection_row.dart';
+import 'package:evently/ui/introductuion_screen/language_selection_row.dart';
+import 'package:evently/ui/introductuion_screen/theme_selection_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:evently/l10n/app_localizations.dart';

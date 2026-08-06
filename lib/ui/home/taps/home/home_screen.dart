@@ -4,8 +4,8 @@ import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_text_styles.dart';
-import 'package:evently/widgets/catogry_list_view_item.dart';
-import 'package:evently/widgets/event_item_widget.dart';
+import 'package:evently/ui/widgets/catogry_list_view_item.dart';
+import 'package:evently/ui/widgets/event_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,10 +17,8 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<LanguageProvider>(context);

@@ -4,7 +4,7 @@ import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_routes.dart';
 import 'package:evently/utils/app_text_styles.dart';
-import 'package:evently/widgets/language_bottom_sheet.dart';
+import 'package:evently/ui/widgets/language_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

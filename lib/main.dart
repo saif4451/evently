@@ -1,7 +1,7 @@
-import 'package:evently/home/add_event.dart';
-import 'package:evently/home/main_screen.dart';
-import 'package:evently/home/taps/profile/profile_tab.dart';
-import 'package:evently/introductuion_screen/onboarding_screen.dart';
+import 'package:evently/ui/home/add_event.dart';
+import 'package:evently/ui/home/main_screen.dart';
+import 'package:evently/ui/home/taps/profile/profile_tab.dart';
+import 'package:evently/ui/introductuion_screen/onboarding_screen.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/login/login_screen.dart';
 import 'package:evently/login/reset_password.dart';

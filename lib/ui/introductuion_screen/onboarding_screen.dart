@@ -1,4 +1,4 @@
-import 'package:evently/introductuion_screen/onboarding_other_page_item.dart.dart';
+import 'package:evently/ui/introductuion_screen/onboarding_other_page_item.dart.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/login/login_screen.dart';
 import 'package:evently/providers/language_provider.dart';

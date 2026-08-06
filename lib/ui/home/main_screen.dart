@@ -1,6 +1,6 @@
-import 'package:evently/home/taps/favorite/favorite.dart';
-import 'package:evently/home/taps/home/home_screen.dart';
-import 'package:evently/home/taps/profile/profile_tab.dart';
+import 'package:evently/ui/home/taps/favorite/favorite.dart';
+import 'package:evently/ui/home/taps/home/home_screen.dart';
+import 'package:evently/ui/home/taps/profile/profile_tab.dart';
 import 'package:evently/l10n/app_localizations.dart';
 import 'package:evently/providers/theme_provider.dart';
 import 'package:evently/utils/app_assets.dart';
